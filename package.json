@@ -1,10 +1,11 @@
 {
   "name": "youtube-next",
   "version": "1.0.0",
+  "type": "module",
   "description": "creating youtube",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "youtube",
@@ -12,5 +13,8 @@
     "mannat"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
