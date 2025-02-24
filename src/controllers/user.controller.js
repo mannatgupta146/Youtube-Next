@@ -22,7 +22,11 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Check for avatar image
     const avatarLocalPath = req.files?.avatar?.[0]?.path || null;
-    const coverImageLocalPath = req.files?.coverImage?.[0]?.path || null;
+    let coverImageLocalPath = null;
+
+    if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path;
+    }
 
     if (!avatarLocalPath) {
         throw new ApiErrors(400, "Avatar is required");
@@ -46,7 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
     // Create user entry
     const user = await User.create({
         fullName,
-        email: email.toLowerCase(),  // ✅ Ensure email is always stored in lowercase
+        email: email.toLowerCase(), // ✅ Ensure email is always stored in lowercase
         username: username.toLowerCase(),
         password,
         avatar: avatar.url,
