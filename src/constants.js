@@ -1,1 +1,1 @@
-export const DB_NAME="youtube next";
+export const DB_NAME="youtubenext";
