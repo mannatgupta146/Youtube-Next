@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
-import {asyncHandler} from '../middlewares/asyncHandler.middleware.js';
+import {asyncHandler} from '../utils/asyncHandler.js';
 import {ApiErrors} from '../utils/ApiErrors.js';
 import {User} from '../models/user.model.js';
-import {JWT_SECRET} from '../config.js';
 
 
 export const verifyJWT= asyncHandler(async(req,_,next)=>{
